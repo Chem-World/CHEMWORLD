@@ -126,17 +126,7 @@
     firebase.initializeApp(config);
   </script>
 
-		  <script>
-
-var ref = firebase.database().ref();
-
-ref.on("value", function(snapshot) {
-   alert(snapshot.val());
-}, function (error) {
-   alert("Error: " + error.code);
-});
-
-		  </script>
+		 
 <script>
 
 firebase.auth().onAuthStateChanged(function(user) {
@@ -144,19 +134,24 @@ firebase.auth().onAuthStateChanged(function(user) {
     // User is signed in.
 
      
-                                           var  user = firebase.auth().currentUser;
-   // if(user.email != "SumanSaha@gmail.com"){
-   alert("You are not Permitted for this action");
-//  window.location.href = 'https://chem-world.github.io/CHEMWORLD/Main1/Main.html';
+     var  user = firebase.auth().currentUser;
+   
+      var email_id = user.email; 
+      
+      if(email_id != "SumanSaha@gmail.com")
+{
+   
+   window.location.href = 'https://chem-world.github.io/CHEMWORLD/Main1/Main.html ' ;
+   alert("You ara not permitted for this action");
+}
 
-
-                                                                                                  }                                                                                                                             } 
-	else {                                                                                                            // window.location.href = 'https://chem-world.github.io/CHEMWORLD'
+            
+    } 
+	else {                                                                                                             window.location.href = 'https://chem-world.github.io/CHEMWORLD'
 
 			    
   }
 });
-
 function login(){
 
   var userEmail = document.getElementById("email").value;
