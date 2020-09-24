@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>CHEMWORLD</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/util.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form validate-form" >
+					<span class="login100-form-title p-b-26">
+						ChemWorld
+<div>
+<img src="images/icons/icon.png" width="150" height="150">
+</div>
+<br>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter Username" >                                                              <input class="input100" type="text" name="Email" id="UserName">                                                                   <span class="focus-input100" data-placeholder="UserName"></span>                                                           </div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter Username" >                                                              <input class="input100" type="email" name="Email" id="email">                                                                   <span class="focus-input100" data-placeholder="Email"></span>                                                           </div>
+
+
+
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<span class="btn-show-pass">
+							<i class="zmdi zmdi-eye"></i>
+						</span>
+						<input class="input100" type="password" name="pass" id="password">
+						<span class="focus-input100" data-placeholder="Password"></span>
+					</div>
+
+
+					<div class="wrap-input100 validate-input" data-validate="Enter Username" >
+					<input class="input100" type="text" id="Class">
+						<span class="focus-input100" data-placeholder="Class(11,  12,  11 & NJ,       12 & NJ  or  NJ)"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter Username" >
+					<input class="input100" type="text" id="School">
+						<span class="focus-input100" data-placeholder="School"></span>
+					</div>
+
+<div class="wrap-input100 validate-input" data-validate="Enter Username" >
+					<input class="input100" type="text" id="Address">
+						<span class="focus-input100" data-placeholder="Address"></span>
+					</div>
+
+<div class="wrap-input100 validate-input" data-validate="Enter Username" >
+					<input class="input100" type="tel" id="Contact">
+						<span class="focus-input100" data-placeholder="Contact"></span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<div class="wrap-login100-form-btn">
+							<div class="login100-form-bgbtn"></div>
+					<button class="login100-form-btn" onclick="login()" > 
+								Create User
+							</button> 
+						</div>
+					</div>
+<br>
+<p> © Copyright CHEMWORLD. Developped by Sujoy Nath. </p>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/main.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyChjmMvDlM8TfvDyezoC3XMKMup4x3XgzU",
+    authDomain: "chemworld-7238b.firebaseapp.com",
+    databaseURL: "https://chemworld-7238b.firebaseio.com",
+    projectId: "chemworld-7238b",
+    storageBucket: "chemworld-7238b.appspot.com",
+    messagingSenderId: "268951470695",
+    appId: "1:268951470695:web:eb569408d1666e09680ac2",
+    measurementId: "G-DLR5488WLS"
+    };
+    firebase.initializeApp(config);
+  </script>
+
+		  <script>
+
+var ref = firebase.database().ref();
+
+ref.on("value", function(snapshot) {
+   alert(snapshot.val());
+}, function (error) {
+   alert("Error: " + error.code);
+});
+
+		  </script>
+<script>
+
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+
+     
+                                           var  user = firebase.auth().currentUser;
+   // if(user.email != "SumanSaha@gmail.com"){
+   alert("You are not Permitted for this action");
+//  window.location.href = 'https://chem-world.github.io/CHEMWORLD/Main1/Main.html';
+
+
+                                                                                                  }                                                                                                                             } 
+	else {                                                                                                            // window.location.href = 'https://chem-world.github.io/CHEMWORLD'
+
+			    
+  }
+});
+
+function login(){
+
+  var userEmail = document.getElementById("email").value;
+  var userPass = document.getElementById("password").value;
+  var userName = document.getElementById("UserName").value;
+  var Class = document.getElementById("Class").value;
+
+var School = document.getElementById("School").value;
+  var Address = document.getElementById("Address").value;
+var Contact = document.getElementById("Contact").value;
+ 
+if( userEmail!=" " && userPass!=" " && Class!=" " )
+		{
+
+		firebase.auth().createUserWithEmailAndPassword(userEmail, userPass).then(function(user)
+	{ 
+		alert('everything went fine');       
+		alert('user object:' + user);
+		var uid= user.uid ;
+		firebase.database().ref().child('Users').child(uid).set({
+  email: user.email,
+  userId: uid,
+  Name:userName,
+  Class : Class,
+ School: School,
+ Address:Address ,
+Contact : Contact 
+});
+	}).catch(function(error) { 
+			alert('there was an error'); 
+			var errorCode = error.code;
+			var errorMessage = error.message;
+			alert(errorCode + ' - ' + errorMessage);                    });
+
+
+	}
+
+	
+	else
+	{
+			alert("Fill out");
+	}
+}
+function logout(){
+  firebase.auth().signOut();
+}
+	
+</script>
+</body>
+</html>
