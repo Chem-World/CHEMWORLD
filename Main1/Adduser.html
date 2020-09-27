@@ -140,7 +140,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
       var email_id = user.email;
       var uid1=user.uid;		    
-	
+	alert(user.uid);
    
 		    //var myFirebase = firebase.database().ref('Users/'+uid1).once("value",snap => { alert(snap.val())});
       //document.getElementById("user_para").innerHTML = "Welcome User : " + email_id;
