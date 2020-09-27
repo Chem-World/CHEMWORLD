@@ -126,7 +126,17 @@
     firebase.initializeApp(config);
   </script>
 
-		  
+		  <script>
+
+var ref = firebase.database().ref();
+
+ref.on("value", function(snapshot) {
+   alert(snapshot.val());
+}, function (error) {
+   alert("Error: " + error.code);
+});
+
+		  </script>
 <script>
 
 firebase.auth().onAuthStateChanged(function(user) {
@@ -140,8 +150,8 @@ firebase.auth().onAuthStateChanged(function(user) {
 
       var email_id = user.email;
       var uid1=user.uid;		    
-	alert(user.uid);
-   
+	
+    alert(email_id);
 		    //var myFirebase = firebase.database().ref('Users/'+uid1).once("value",snap => { alert(snap.val())});
       //document.getElementById("user_para").innerHTML = "Welcome User : " + email_id;
 
@@ -172,7 +182,7 @@ if( userEmail!=" " && userPass!=" " && Class!=" " )
 		firebase.auth().createUserWithEmailAndPassword(userEmail, userPass).then(function(user)
 	{ 
 		alert('everything went fine');       
-	
+		alert('user object:' + user);
 		var uid= user.uid ;
 		firebase.database().ref().child('Users').child(uid).set({
   email: user.email,
