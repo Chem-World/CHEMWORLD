@@ -113,16 +113,16 @@
 <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
   <script>
     // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyChjmMvDlM8TfvDyezoC3XMKMup4x3XgzU",
-    authDomain: "chemworld-7238b.firebaseapp.com",
-    databaseURL: "https://chemworld-7238b.firebaseio.com",
-    projectId: "chemworld-7238b",
-    storageBucket: "chemworld-7238b.appspot.com",
-    messagingSenderId: "268951470695",
-    appId: "1:268951470695:web:eb569408d1666e09680ac2",
-    measurementId: "G-DLR5488WLS"
-    };
+    var firebaseConfig = {
+    apiKey: "AIzaSyAVYqdgaPcMRZaQ-XCDwfZrlI93tk4O9ss",
+    authDomain: "chemquery-50347.firebaseapp.com",
+    databaseURL: "https://chemquery-50347.firebaseio.com",
+    projectId: "chemquery-50347",
+    storageBucket: "chemquery-50347.appspot.com",
+    messagingSenderId: "1051796875998",
+    appId: "1:1051796875998:web:fdbb2d2da9e18270d2304f",
+    measurementId: "G-PYDB0D6XF3"
+  };
     firebase.initializeApp(config);
   </script>
 
@@ -136,10 +136,19 @@ firebase.auth().onAuthStateChanged(function(user) {
      
      var  user = firebase.auth().currentUser;
    
+      var email_id = user.email; 
+      
+      if(email_id != "sumansaha@gmail.com")
+{
+   
+//   window.location.href = 'https://chem-world.github.io/CHEMWORLD/Main1/Main.html ' ;
+   alert("You ara not permitted for this action");
+}
 
             
     } 
-	else {                                 
+	else {                                                                                                           //  window.location.href = 'https://chem-world.github.io/CHEMWORLD'
+
 			    
   }
 });
@@ -162,29 +171,15 @@ if( userEmail!=" " && userPass!=" " && Class!=" " )
 		alert('everything went fine');       
 		var uid= user.uid ;
 		firebase.database().ref().child('Users').child(uid).set({
-  
-
   Name:userName,
   Class : Class,
  School: School
-
 });
 	}).catch(function(error) { 
 			alert('there was an error'); 
 			var errorCode = error.code;
 			var errorMessage = error.message;
 			alert(errorCode + ' - ' + errorMessage);                    });
-
-firebase.auth().signInWithEmailAndPassword("sumansaha@gmail.com", "123456").catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-
-    window.alert("Error : " + errorMessage);
-
-    // ...
-  });
-
 
 	}
 
