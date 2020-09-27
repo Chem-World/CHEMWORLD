@@ -163,8 +163,7 @@ var School = document.getElementById("School").value;
   //var Address = document.getElementById("Address").value;
 //var Contact = document.getElementById("Contact").value;
  
-if( userEmail!=" " && userPass!=" " && Class!=" " )
-		{
+		
 
 		firebase.auth().createUserWithEmailAndPassword(userEmail, userPass).then(function(user)
 	{ 
@@ -181,13 +180,13 @@ if( userEmail!=" " && userPass!=" " && Class!=" " )
 			var errorMessage = error.message;
 			alert(errorCode + ' - ' + errorMessage);                    });
 
-	}
+	
 
 	
-	else
-	{
-			alert("Fill out");
-	}
+	
+
+		
+	
 }
 function logout(){
   firebase.auth().signOut();
