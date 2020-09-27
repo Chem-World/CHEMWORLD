@@ -136,19 +136,10 @@ firebase.auth().onAuthStateChanged(function(user) {
      
      var  user = firebase.auth().currentUser;
    
-      var email_id = user.email; 
-      
-      if(email_id != "sumansaha@gmail.com")
-{
-   
-   window.location.href = 'https://chem-world.github.io/CHEMWORLD/Main1/Main.html ' ;
-   alert("You ara not permitted for this action");
-}
 
             
     } 
-	else {                                                                                                             window.location.href = 'https://chem-world.github.io/CHEMWORLD'
-
+	else {                                 
 			    
   }
 });
@@ -171,13 +162,12 @@ if( userEmail!=" " && userPass!=" " && Class!=" " )
 		alert('everything went fine');       
 		var uid= user.uid ;
 		firebase.database().ref().child('Users').child(uid).set({
-  email: user.email,
-  userId: uid,
+  
+
   Name:userName,
   Class : Class,
- School: School,
- Address:Address ,
-Contact : Contact 
+ School: School
+
 });
 	}).catch(function(error) { 
 			alert('there was an error'); 
