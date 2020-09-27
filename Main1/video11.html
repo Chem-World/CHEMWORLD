@@ -44,10 +44,24 @@ firebase.auth().onAuthStateChanged(function(user) {
     // User is signed in.
 
      
-                                                                    var user = firebase.auth().currentUser;
-    if(user != null){
-      var email_id = user.email;                                                                                                         }                                                                                                                             } 
-	else {                                                                                                             window.location.href ='https://chem-world.github.io/CHEMWORLD/';
+        var user = firebase.auth().currentUser;
+    
+
+      var email_id = user.email; 
+      var uid1= user.uid;
+        var ref = firebase.database().ref("Users/uid1");
+ref.once("value").then(function(snapshot) {
+  var user1 = snapshot.val(); 
+  if(user1.Class!=11 || user1.class != "11 & NJ")
+{
+  alert("You are not permitted for this Class");
+  window.location.href= 'https://chem-world.github.io/CHEMWORLD/Main.html ' ;
+}
+
+});
+                  } 
+	
+else {                                                                                                             window.location.href ='https://chem-world.github.io/CHEMWORLD/';
 
 			    
   }
