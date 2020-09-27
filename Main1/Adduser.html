@@ -113,8 +113,8 @@
 <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
   <script>
     // Initialize Firebase
-    var firebaseConfig = {
-    apiKey: "AIzaSyAVYqdgaPcMRZaQ-XCDwfZrlI93tk4O9ss",
+    var config = {
+      apiKey: "AIzaSyAVYqdgaPcMRZaQ-XCDwfZrlI93tk4O9ss",
     authDomain: "chemquery-50347.firebaseapp.com",
     databaseURL: "https://chemquery-50347.firebaseio.com",
     projectId: "chemquery-50347",
@@ -122,36 +122,49 @@
     messagingSenderId: "1051796875998",
     appId: "1:1051796875998:web:fdbb2d2da9e18270d2304f",
     measurementId: "G-PYDB0D6XF3"
-  };
+    };
     firebase.initializeApp(config);
   </script>
 
-		 
+		  <script>
+
+var ref = firebase.database().ref();
+
+ref.on("value", function(snapshot) {
+   alert(snapshot.val());
+}, function (error) {
+   alert("Error: " + error.code);
+});
+
+		  </script>
 <script>
 
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
+    //window.location = 'code.html' ;
 
-     
-     var  user = firebase.auth().currentUser;
-   
-      var email_id = user.email; 
-      
-      if(email_id != "sumansaha@gmail.com")
-{
-   
-//   window.location.href = 'https://chem-world.github.io/CHEMWORLD/Main1/Main.html ' ;
-   alert("You ara not permitted for this action");
-}
+    var user = firebase.auth().currentUser;
 
-            
-    } 
-	else {                                                                                                           //  window.location.href = 'https://chem-world.github.io/CHEMWORLD'
+    if(user != null){
 
-			    
+      var email_id = user.email;
+      var uid1=user.uid;		    
+	
+    alert(email_id);
+		    //var myFirebase = firebase.database().ref('Users/'+uid1).once("value",snap => { alert(snap.val())});
+      //document.getElementById("user_para").innerHTML = "Welcome User : " + email_id;
+
+    }
+
+  } else {
+    // No user is signed in.
+
+   alert("no");
+
   }
 });
+
 function login(){
 
   var userEmail = document.getElementById("email").value;
@@ -169,17 +182,23 @@ if( userEmail!=" " && userPass!=" " && Class!=" " )
 		firebase.auth().createUserWithEmailAndPassword(userEmail, userPass).then(function(user)
 	{ 
 		alert('everything went fine');       
+		alert('user object:' + user);
 		var uid= user.uid ;
 		firebase.database().ref().child('Users').child(uid).set({
+  email: user.email,
+  userId: uid,
   Name:userName,
   Class : Class,
- School: School
+ School: School,
+ Address:Address ,
+Contact : Contact 
 });
 	}).catch(function(error) { 
 			alert('there was an error'); 
 			var errorCode = error.code;
 			var errorMessage = error.message;
 			alert(errorCode + ' - ' + errorMessage);                    });
+
 
 	}
 
