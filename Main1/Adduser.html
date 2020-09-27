@@ -173,7 +173,7 @@ if( userEmail!=" " && userPass!=" " && Class!=" " )
 		firebase.auth().createUserWithEmailAndPassword(userEmail, userPass).then(function(user)
 	{ 
 		alert('everything went fine');       
-		alert('user object:' + user);
+	
 		var uid= user.uid ;
 		firebase.database().ref().child('Users').child(uid).set({
   email: user.email,
