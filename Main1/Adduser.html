@@ -140,6 +140,8 @@ firebase.auth().onAuthStateChanged(function(user) {
     if(user != null){
 
       var email_id = user.email;
+
+alert(user.uid);
       var uid1=user.uid;		    
 	
     alert(email_id);
