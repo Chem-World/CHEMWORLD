@@ -126,17 +126,7 @@
     firebase.initializeApp(config);
   </script>
 
-		  <script>
-
-var ref = firebase.database().ref();
-
-ref.on("value", function(snapshot) {
-   alert(snapshot.val());
-}, function (error) {
-   alert("Error: " + error.code);
-});
-
-		  </script>
+		  
 <script>
 
 firebase.auth().onAuthStateChanged(function(user) {
