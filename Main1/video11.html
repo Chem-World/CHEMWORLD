@@ -49,8 +49,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
       var email_id = user.email; 
       var uid1= user.uid;
-       alert(user.uid);
-        var ref = firebase.database().ref("Users/uid1");
+        var ref = firebase.database().ref("Users/${uid1}");
 ref.once("value").then(function(snapshot) {
   var user1 = snapshot.val(); 
   alert(user1.Class);
