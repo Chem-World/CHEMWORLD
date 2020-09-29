@@ -47,7 +47,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         var ref = firebase.database().ref("Users").child(user.uid);
 ref.once("value").then(function(snapshot) {                      
  var user1 = snapshot.val();
-  class=user1.Class;
+  var class=user1.Class;
 alert(class);
 if(class !=null)
 {
