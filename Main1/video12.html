@@ -30,45 +30,26 @@
 	<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
   <script>                                                          // Initialize Firebase
     var config = {                                                    apiKey: "AIzaSyChjmMvDlM8TfvDyezoC3XMKMup4x3XgzU",            authDomain: "chemworld-7238b.firebaseapp.com",                  databaseURL: "https://chemworld-7238b.firebaseio.com",
-    authDomain: "chemquery-50347.firebaseapp.com",
-    databaseURL: "https://chemquery-50347.firebaseio.com",
-    projectId: "chemquery-50347",
+    apiKey: "AIzaSyAVYqdgaPcMRZaQ-XCDwfZrlI93tk4O9ss",            authDomain: "chemquery-50347.firebaseapp.com",                  databaseURL: "https://chemquery-50347.firebaseio.com",          projectId: "chemquery-50347",
     storageBucket: "chemquery-50347.appspot.com",
     messagingSenderId: "1051796875998",
     appId: "1:1051796875998:web:fdbb2d2da9e18270d2304f",
     measurementId: "G-PYDB0D6XF3"
     };                                                              firebase.initializeApp(config);                               </script>                                                     <script>
 
-
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
 
      
-        var user = firebase.auth().currentUser;
-    
-
-      var email_id = user.email; 
-      var uid1= user.uid;
-        var ref = firebase.database().ref("Users/uid1");
-ref.once("value").then(function(snapshot) {
-  var user1 = snapshot.val(); 
-  alert(user1.Class);
-  if(user1.Class!=12 || user1.class != "12 & NJ")
-{
-  alert("You are not permitted for this Class");
-  window.location.href= 'https://chem-world.github.io/CHEMWORLD/Main.html ' ;
-}
-
-});
-                  } 
-	
-else {                                                                                                             window.location.href ='https://chem-world.github.io/CHEMWORLD/';
+                                           var  user = firebase.auth().currentUser;
+    if(user != null){
+      var email_id = user.email;                                                                                                         }                                                                                                                             } 
+	else {                                                                                                             window.location.href = 'https://chem-world.github.io/CHEMWORLD'
 
 			    
   }
 });
-
 </script>
 
 
