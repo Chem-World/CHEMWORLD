@@ -45,12 +45,9 @@ firebase.auth().onAuthStateChanged(function(user) {
                                            var  user = firebase.auth().currentUser;
     if(user != null){
         var ref = firebase.database().ref("Users").child(user.uid);
-ref.once("value").then(function(snapshot) {                      
- var user1 = snapshot.val();
-alert(user1.Class);
-  var class=user1.Class;
-alert(class);
-});
+ref.once("value").then(function(snapshot) {
+  var user1 = snapshot.val();
+  alert(user1.Class);                                            });
  }  
 } 
 	else {                                                                                                             window.location.href = 'https://chem-world.github.io/CHEMWORLD' ;
