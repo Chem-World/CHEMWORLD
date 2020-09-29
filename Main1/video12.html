@@ -48,6 +48,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 ref.once("value").then(function(snapshot) {                      
  var user1 = snapshot.val();
   Class=user1.Class;
+alert(Class);
 if(Class !=null)
 {
 if(Class!=12 || Class!="12 & NJ)
