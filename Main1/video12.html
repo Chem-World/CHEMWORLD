@@ -47,7 +47,8 @@ firebase.auth().onAuthStateChanged(function(user) {
         var ref = firebase.database().ref("Users").child(user.uid);
 ref.once("value").then(function(snapshot) {
   var user1 = snapshot.val();
-
+var class= user1.Class ;
+alert(class);
 if(user1.Class != 12 || user1.Class = '12 &NJ')
 {
 alert("You are not permitted for this class");
