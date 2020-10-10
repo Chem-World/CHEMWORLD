@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<!-- Based on https://github.com/jrue/JavaScript-Quiz by Jeremy Rue -->
+
+<html>
+
+<head>
+	<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'; media-src *; img-src * filesystem: data: gap: https://ssl.gstatic.com content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" media="all" href="css/dotsMenu.css">
+    <link rel="stylesheet" type="text/css" media="all" href="css/app.css">
+    <title>ChemWorld</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.1/firebase-database.js"></script>
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+	<div class="header">
+		<!-- three dot menu -->
+		
+	</div>
+	
+		<div class="bgbg">
+			<div id="frame" role="content"></div>
+        <hr/>
+        <div id="myProgress">
+            <div id="loader"></div>
+            <div align="center" id="fetchingQ"></div>
+        </div>
+    </div>
+    <br/>
+
+    <center>
+		
+		<hr/>
+        <br />
+		<p>
+		Copyright to ChemWorld © 2020
+		<p>
+    </center>
+	<br/><br/><br/><br/>
+	 <div class="menu" align="center">
+        <table  align="center">
+            <tr>
+                <td>
+                    <button class="simpleBtn" id="newquiz" onClick="populateQuiz()"></button>
+                </td>
+                <td>
+                      <button class="simpleBtn" id="reportMistake" onClick="reportMistake()"></button>  
+            </td>
+            </tr>
+        </table>
+<div class="bottom"> </div>
+	</div>
+<style>
+.bottom
+{
+
+}
+</style>
+<script>
+window.onbeforeunload = function()
+ {
+ return  "Data will be lost if you leave the page. Be concentrated while giving exams " ;
+};
+
+</script>
+</body>
+
+</html>
