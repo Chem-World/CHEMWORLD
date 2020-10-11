@@ -372,7 +372,7 @@ function initQuiz() {
 }
 /************************************* MAIN **********************************************************/
 
-var qInQuiz = 2;       // default
+var qInQuiz = 3;       // default
 var nextQuestionText, correctText, qInDB;
 var checkAnswer, questionText, notEnoughQuestionMessage;
 var questionTextOf, doneQuizText1, doneQuizText2, doneQuizText3, doneQuizText4;
