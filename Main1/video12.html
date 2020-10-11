@@ -42,7 +42,15 @@ firebase.auth().onAuthStateChanged(function(user) {
     // User is signed in.
 
      
-                                          // var  user = firebase.auth().currentUser;
+                                    var  user = firebase.auth().currentUser;
+var ref = firebase.database().ref("Users").child(user.uid);
+ref.once("value").then(function(snapshot) {
+  var use = snapshot.val();
+  alert(use.Class);
+  if(use.Class != 12 && use.Class!="12 & NJ")                         {                                                                       alert("Not permitted"); 
+window.location.href="https://chem-world.github.io/CHEMWORLD/Main1/video.html";    
+
+                            }                                                       });
     
 } 
 	else {                                                                                                             window.location.href = 'https://chem-world.github.io/CHEMWORLD' ;
