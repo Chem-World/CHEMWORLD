@@ -24,7 +24,20 @@
 </head>
 
 <body>
-
+<script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAVYqdgaPcMRZaQ-XCDwfZrlI93tk4O9ss",
+    authDomain: "chemquery-50347.firebaseapp.com",
+    databaseURL: "https://chemquery-50347.firebaseio.com",
+    projectId: "chemquery-50347",
+    storageBucket: "chemquery-50347.appspot.com",
+    messagingSenderId: "1051796875998",
+    appId: "1:1051796875998:web:fdbb2d2da9e18270d2304f",
+    measurementId: "G-PYDB0D6XF3"
+    };
+    firebase.initializeApp(config);
+  </script>
 <script>
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
