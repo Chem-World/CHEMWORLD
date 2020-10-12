@@ -29,12 +29,14 @@
 
 	<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
   <script>                                                          // Initialize Firebase
-    var config = {                                                    apiKey: "AIzaSyChjmMvDlM8TfvDyezoC3XMKMup4x3XgzU",            authDomain: "chemworld-7238b.firebaseapp.com",                  databaseURL: "https://chemworld-7238b.firebaseio.com",
-    apiKey: "AIzaSyAVYqdgaPcMRZaQ-XCDwfZrlI93tk4O9ss",            authDomain: "chemquery-50347.firebaseapp.com",                  databaseURL: "https://chemquery-50347.firebaseio.com",          projectId: "chemquery-50347",
-    storageBucket: "chemquery-50347.appspot.com",
-    messagingSenderId: "1051796875998",
-    appId: "1:1051796875998:web:fdbb2d2da9e18270d2304f",
-    measurementId: "G-PYDB0D6XF3"
+    var config = {                                                 apiKey: "AIzaSyAVYqdgaPcMRZaQ-XCDwfZrlI93tk4O9ss",
+    authDomain: "chemquery-50347.firebaseapp.com",
+    databaseURL: "https://chemquery-50347.firebaseio.com",
+    projectId: "chemquery-50347",
+    storageBucket: "chemquery-50347.appspot.com",
+    messagingSenderId: "1051796875998",
+    appId: "1:1051796875998:web:fdbb2d2da9e18270d2304f",
+    measurementId: "G-PYDB0D6XF3"
     };                                                              firebase.initializeApp(config);                               </script>                                                     <script>
 
 firebase.auth().onAuthStateChanged(function(user) {
@@ -42,33 +44,21 @@ firebase.auth().onAuthStateChanged(function(user) {
     // User is signed in.
 
      
-                                    var  user = firebase.auth().currentUser;
+                                                                     var  user = firebase.auth().
+currentUser;
 var ref = firebase.database().ref("Users").child(user.uid);
 ref.once("value").then(function(snapshot) {
-  var use = snapshot.val();
-  alert(use.Class);
-  if(use.Class != 12 && use.Class!="12 & NJ")                         {                                                                       alert("You are Not permitted"); 
-window.location.href="https://chem-world.github.io/CHEMWORLD/Main1/video.html";    
-
-                            }                                                       });
-    
-} 
-	else {                                                                                                             window.location.href = 'https://chem-world.github.io/CHEMWORLD' ;
+  var use = snapshot.val();                                       alert(use.Class);
+  if(use.Class != 12 && use.Class!="12 & NJ")
+      {
+              alert("Not permitted");
+window.location.href="https://chem-world.github.io/CHEMWORLD/Main1/video.html";                                                                                                                                             }
+                    });                                                                                                                              } 
+	else {                                                                                                          window.location.href ='https://chem-world.github.io/CHEMWORLD/'
 
 			    
   }
 });
-</script>
-<script>
-var  user = firebase.auth().currentUser;
-        var ref = firebase.database().ref("Users").child(user.uid);
-ref.once("value").then(function(snapshot) {
-  var user1 = snapshot.val();
-alert(user1.Class);
-var class1= user1.Class ;
-alert(class1);       
-
-});                     
 
 </script>
 
@@ -135,7 +125,7 @@ alert(class1);
                                             <ul class="submenu">
                                                 <li><a href="video11.html">Class 11</a></li>
                                                 <li><a href="video12.html">Class 12 </a></li>
-                                                <li><a href="videoNJ.html">JEE NEET</a></li>
+                                                <li><a href="videojn.html">JEE NEET</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="blog.html">Notes</a>
@@ -190,19 +180,27 @@ alert(class1);
                 <div class="row justify-content-sm-center">
                     <div class="cl-xl-7 col-lg-8 col-md-10">
                         <!-- Section Tittle -->
-                        
+                        <div class="section-tittle text-center mb-70">
+                            
+                            <h1>Videos</h1>
+                        </div> 
                     </div>
                 </div>
-                
-<a href="co.html"> <div class="row" >
+
+
+<a href="solid1.html">
+<div class="row">
                     <div class="col-lg-4 col-md-6 col-sm-6">
-                        <div class="single-cat mb-50" 
- style="padding-left: 70px; " >
-                            <h5> Coordination Compound  </h5>
+                        <div class="single-cat mb-50">
+      <p> Unit Cell</p>                      
+<img src="assets/img/elements/sol1.png" style="width:300px; height:500;">
                             </div>
                         </div>
-                    </div>
-                </a>    
+                    </div>          
+</a>
+
+
+
     </main>
 
     <footer>
