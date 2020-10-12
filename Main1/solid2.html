@@ -48,7 +48,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 currentUser;
 var ref = firebase.database().ref("Users").child(user.uid);
 ref.once("value").then(function(snapshot) {
-  var use = snapshot.val();                                       alert(use.Class);
+  var use = snapshot.val();                                       
   if(use.Class != 12 && use.Class!="12 & NJ")
       {
               alert("Not permitted");
