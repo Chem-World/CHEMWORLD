@@ -40,47 +40,57 @@
 </div>
 <br>
 
-					<div class="wrap-input100 validate-input" data-validate="Enter Username" >                                                              <input class="input100" type="text" name="Email" id="UserName">                                                                   <span class="focus-input100" data-placeholder="UserName"></span>                                                           </div>
+					<div class="wrap-input100 validate-input" data-validate="Enter Username" >                                                              <input class="input100" type="text" name="Email" id="chapter">                                                                   <span class="focus-input100" data-placeholder="Chapter"></span>                                                           </div>
 
-					<div class="wrap-input100 validate-input" data-validate="Enter Username" >                                                              <input class="input100" type="email" name="Email" id="email">                                                                   <span class="focus-input100" data-placeholder="Email"></span>                                                           </div>
+					<div class="wrap-input100 validate-input" data-validate="Enter Username" >                                                              <input class="input100" type="tel" name="Email" id="qnum">                                                                   <span class="focus-input100" data-placeholder="Question No."></span>                                                           </div>
 
 
 
 
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<span class="btn-show-pass">
-							<i class="zmdi zmdi-eye"></i>
-						</span>
-						<input class="input100" type="password" name="pass" id="password">
-						<span class="focus-input100" data-placeholder="Password"></span>
+						<input class="input100" type="text" name="pass" id="question">
+						<span class="focus-input100" data-placeholder="Question"></span>
 					</div>
 
 
 					<div class="wrap-input100 validate-input" data-validate="Enter Username" >
-					<input class="input100" type="text" id="Class">
-						<span class="focus-input100" data-placeholder="Class(11,  12,  11 & NJ,       12 & NJ  or  NJ)"></span>
+					<input class="input100" type="text" id="cha">
+						<span class="focus-input100" data-placeholder="Choice A"></span>
 					</div>
 
+	<div class="wrap-input100 validate-input" data-validate="Enter Username" >
+					<input class="input100" type="text" id="chb">
+						<span class="focus-input100" data-placeholder="Choice B"></span>
+					</div>
+
+	<div class="wrap-input100 validate-input" data-validate="Enter Username" >
+					<input class="input100" type="text" id="chc">
+						<span class="focus-input100" data-placeholder="Choice C"></span>
+					</div>
+	<div class="wrap-input100 validate-input" data-validate="Enter Username" >
+					<input class="input100" type="text" id="chd">
+						<span class="focus-input100" data-placeholder="Choice D"></span>
+					</div>
 					<div class="wrap-input100 validate-input" data-validate="Enter Username" >
-					<input class="input100" type="text" id="School">
-						<span class="focus-input100" data-placeholder="School"></span>
+					<input class="input100" type="text" id="correct">
+						<span class="focus-input100" data-placeholder="Correct Choice"></span>
 					</div>
 
 <div class="wrap-input100 validate-input" data-validate="Enter Username" >
-					<input class="input100" type="text" id="Address">
-						<span class="focus-input100" data-placeholder="Address"></span>
+					<input class="input100" type="text" id="explanation">
+						<span class="focus-input100" data-placeholder="Explanation"></span>
 					</div>
 
 <div class="wrap-input100 validate-input" data-validate="Enter Username" >
-					<input class="input100" type="tel" id="Contact">
-						<span class="focus-input100" data-placeholder="Contact"></span>
+					<input class="input100" type="text" id="img">
+						<span class="focus-input100" data-placeholder="Image Url"></span>
 					</div>
 
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
 					<button class="login100-form-btn" onclick="login()" > 
-								Create User
+								Add Question
 							</button> 
 						</div>
 					</div>
@@ -142,18 +152,15 @@ ref.on("value", function(snapshot) {
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
-    //window.location = 'code.html' ;
-
-    var user = firebase.auth().currentUser;
-
-    if(user != null){
-
-      var email_id = user.email;
-      var uid1=user.uid;		    
-	
-    alert(email_id);
-		    //var myFirebase = firebase.database().ref('Users/'+uid1).once("value",snap => { alert(snap.val())});
-      //document.getElementById("user_para").innerHTML = "Welcome User : " + email_id;
+ var  user = firebase.auth().currentUser;
+   
+      var email_id = user.email; 
+      if(email_id != "sumansaha@gmail.com")
+{
+   
+   window.location.href = 'https://chem-world.github.io/CHEMWORLD/Main1/Main.html ' ;
+   alert("You ara not permitted for this action");
+}
 
     }
 
@@ -167,46 +174,45 @@ firebase.auth().onAuthStateChanged(function(user) {
 
 function login(){
 
-  var userEmail = document.getElementById("email").value;
-  var userPass = document.getElementById("password").value;
-  var userName = document.getElementById("UserName").value;
-  var Class = document.getElementById("Class").value;
+  var chapter = document.getElementById("chapter").value;
+  var qnum = document.getElementById("qnum").value;
+  var cha = document.getElementById("cha").value;
+var chb = document.getElementById("chb").value;
+var chc = document.getElementById("chc").value ;
+var chd = document.getElementById("chd").value ;
+  var question = document.getElementById("question").value;
 
-var School = document.getElementById("School").value;
-  var Address = document.getElementById("Address").value;
-var Contact = document.getElementById("Contact").value;
- 
-if( userEmail!=" " && userPass!=" " && Class!=" " )
-		{
+var exp = document.getElementById("explanation").value;
+  var correct = document.getElementById("correct").value;
+var img = document.getElementById("img").value;
 
-		firebase.auth().createUserWithEmailAndPassword(userEmail, userPass).then(function(user)
-	{ 
-		alert('everything went fine');       
-	
-		var uid= user.uid ;
-		firebase.database().ref().child('Users').child(uid).set({
-  email: user.email,
-  userId: uid,
-  Name:userName,
-  Class : Class,
- School: School,
- Address:Address ,
-Contact : Contact 
-});
-	}).catch(function(error) { 
+
+ 	firebase.database().ref().child('question').child(chapter).child(qnum).set({
+  correct: correct,
+  explanation: exp,
+  image: img,
+  question: question
+}).catch(function(error) { 
 			alert('there was an error'); 
 			var errorCode = error.code;
 			var errorMessage = error.message;
 			alert(errorCode + ' - ' + errorMessage);                    });
 
 
-	}
+firebase.database().ref().child('question').child(chapter).child(qnum).child('choices').set({
+  A: cha,
+  B: chb,
+  C: chc,
+  D : chd
+}).then(function(user)
+	{ 
+		alert('Question Added');       
+	}).catch(function(error) { 
+			alert('there was an error'); 
+			var errorCode = error.code;
+			var errorMessage = error.message;
+			alert(errorCode + ' - ' + errorMessage);                    });
 
-	
-	else
-	{
-			alert("Fill out");
-	}
 }
 function logout(){
   firebase.auth().signOut();
