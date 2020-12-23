@@ -145,10 +145,10 @@ firebase.auth().onAuthStateChanged(function(user) {
  var  user = firebase.auth().currentUser;
    
       var email_id = user.email; 
-       alert(user.email);
+ 
       if(email_id != "sumansaha@gmail.com")
 {
-   alert("You ara not permitted for this action");
+   alert("You are not permitted for this action");
    window.location.href = 'https://chem-world.github.io/CHEMWORLD/Main1/Main.html ' ;
    
 }
