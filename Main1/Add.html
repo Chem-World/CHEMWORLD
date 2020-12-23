@@ -145,6 +145,7 @@ firebase.auth().onAuthStateChanged(function(user) {
  var  user = firebase.auth().currentUser;
    
       var email_id = user.email; 
+       alert(user.email);
       if(email_id != "sumansaha@gmail.com")
 {
    alert("You ara not permitted for this action");
