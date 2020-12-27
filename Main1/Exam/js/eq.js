@@ -269,7 +269,7 @@ function error(errorMessage)
   * Populate a quiz.
   */
 function populateQuiz() {
-    currentquestion = 1;
+    currentquestion = 0;
     score = 0;
     submt = true;
     picked = undefined;
