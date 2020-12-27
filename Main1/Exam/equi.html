@@ -71,7 +71,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 		<div class="bgbg">
 			<div id="frame" role="content"></div>
         <hr/>
-<p id="dem"></p>
+<div id="dem"></div>
         <div id="myProgress">
             <div id="loader"></div>
             <div align="center" id="fetchingQ"></div>
@@ -148,7 +148,7 @@ var x = setInterval(function() {
   // If the count down is finished, write some text
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
+    document.getElementById("dem").innerHTML = "EXPIRED";
   }
 }, 1000);
 </script>
