@@ -145,6 +145,7 @@ function endQuiz() {
     $(document.createElement('gradeH')).css({ 'text-align': 'center', 'font-size': '4em', 'color': gradeColor }).text(grade).insertAfter('#question');
     $(document.createElement('space')).html('<br/>').insertAfter('gradeH');
     $(document.createElement('cheers')).css({ 'color': gradeColor }).text(cheers).insertAfter('space');
+    
 
 }
 
