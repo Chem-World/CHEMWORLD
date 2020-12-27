@@ -36,6 +36,7 @@ function addChoices(choices) {
  * Resets all of the fields to prepare for next question
  */
 function nextQuestion() {
+    $("#question-Image").load(" #question-Image");
     $('#question-Image').css({ zoom: 1, '-moz-transform': 'scale(1)' });
     submt = true;
     $('#explanation').empty();
