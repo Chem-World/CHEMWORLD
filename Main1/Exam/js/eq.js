@@ -2,7 +2,7 @@
 /* Based on https://github.com/jrue/JavaScript-Quiz by Jeremy Rue */
 
 
-var supportMail = "yourMa@gmail.com";
+var supportMail = "ssahachmst@gmail.com";
 var quizTitle = "ChemWorld";
 
 /*************************************** INTERNAL LOGICS *************************************************/
@@ -252,7 +252,7 @@ function loadAllQuestions() {
 function error(errorMessage)
 {
     document.getElementById("myProgress").style.display = "none";
-    document.getElementById("newquiz").style.display = "block";
+    //document.getElementById("newquiz").style.display = "block";
     document.getElementById("reportMistake").style.display = "block";
     document.getElementById("frame").style.display = "block";
     $("#frame").empty();
@@ -372,7 +372,7 @@ function initQuiz() {
 }
 /************************************* MAIN **********************************************************/
 
-var qInQuiz = 24;       // default
+var qInQuiz = 25;       // default
 var nextQuestionText, correctText, qInDB;
 var checkAnswer, questionText, notEnoughQuestionMessage;
 var questionTextOf, doneQuizText1, doneQuizText2, doneQuizText3, doneQuizText4;
