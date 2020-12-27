@@ -43,11 +43,9 @@ function nextQuestion() {
     $('#question').text(quiz[currentquestion]['question']);
     $('#pager').text(questionText + ' ' + Number(currentquestion + 1) + ' ' + questionTextOf + ' ' + quiz.length);
     if (quiz[currentquestion].hasOwnProperty('Image') && quiz[currentquestion]['Image'] != " ") {
-        if ($('#question-Image').length == 1) {
-            $(document.createElement('img')).addClass('question-Image').attr('id', 'question-Image').attr('src', quiz[currentquestion]['Image']).attr('alt', htmlEncode(quiz[currentquestion]['question'])).insertAfter('#question');
-        } else {
+     
             $('#question-Image').attr('src', quiz[currentquestion]['Image']).attr('alt', htmlEncode(quiz[currentquestion]['question']));
-        }
+        
         var clicked = false;
         $('#question-Image').click(function () {
             if (clicked) {
