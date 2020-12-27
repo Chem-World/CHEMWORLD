@@ -91,7 +91,7 @@ firebase.auth().onAuthStateChanged(function(user) {
         <table  align="center">
             <tr>
                 <td>
-                    <button class="simpleBtn" id="newquiz" onClick="populateQuiz()"></button>
+                    <button class="simpleBtn" id="newquiz" onClick="er()"></button>
                 </td>
                 <td>
                       <button class="simpleBtn" id="reportMistake" onClick="reportMistake()"></button>  
@@ -113,5 +113,11 @@ window.onbeforeunload = function()
 };
 
 </script>
+<script>
+function er()
+{
+alert("Not permitted.");
+
+}
 </body>
 </html>
