@@ -125,15 +125,15 @@ alert("Not permitted.");
 
 <script>
 // Set the date we're counting down to
+var n1 = new Date() ;
+  n1.setHours(n1.getHours()+1);
+  countDownDate=n1.getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
 
   // Get today's date and time
   var now = new Date().getTime();
-  var n1 = new Date() ;
-  n1.setHours(n1.getHours()+1);
-  countDownDate=n1.getTime();
   // Find the distance between now and the count down date
   var distance = countDownDate - now;
 
