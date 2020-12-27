@@ -367,12 +367,12 @@ function initQuiz() {
     $("#setQuizSize").text('Set number of quesitons in quiz');
     $("#fetchingQ").text('Loading questions from database..');
     document.body.style = "text-align:right;unicode-bidi:bidi-override; direction:rtl;"
-    rootRef = fb.database().ref('question').child('solid3');
+    rootRef = fb.database().ref('question').child('Solve');
     loadAllQuestions();
 }
 /************************************* MAIN **********************************************************/
 
-var qInQuiz = 3;       // default
+var qInQuiz = 2;       // default
 var nextQuestionText, correctText, qInDB;
 var checkAnswer, questionText, notEnoughQuestionMessage;
 var questionTextOf, doneQuizText1, doneQuizText2, doneQuizText3, doneQuizText4;
