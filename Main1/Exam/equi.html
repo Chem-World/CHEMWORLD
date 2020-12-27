@@ -71,7 +71,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 		<div class="bgbg">
 
 			<div id="frame" role="content"></div>
-        <hr/>
+        
 
         <div id="myProgress">
             <div id="loader"></div>
@@ -144,8 +144,8 @@ var x = setInterval(function() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   // Display the result in the element with id="demo"
-  text="<h5> hours + "h "
-  + minutes + "m " + seconds + "s " </h5> ";
+  text="<h5>"+ hours + "h "
+  + minutes + "m " + seconds + "s "+ "</h5> ";
 
 document.getElementById("dem").innerHTML = text ;
   // If the count down is finished, write some text
@@ -158,8 +158,8 @@ document.getElementById("dem").innerHTML = text ;
 <style>
  .dem{
   text-align: center;
-  font-size: 60px;
-  margin-top: 20px;
+  font-size: 200px;
+  margin-top: 500px;
 }
 </style>
 </body>
