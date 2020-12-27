@@ -372,7 +372,7 @@ function initQuiz() {
     $("#setQuizSize").text('Set number of quesitons in quiz');
     $("#fetchingQ").text('Loading questions from database..');
     document.body.style = "text-align:right;unicode-bidi:bidi-override; direction:rtl;"
-    rootRef = fb.database().ref('question').child('Solid_State');
+    rootRef = fb.database().ref('question').child('Solidstate');
     loadAllQuestions();
 }
 /************************************* MAIN **********************************************************/
