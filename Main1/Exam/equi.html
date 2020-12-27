@@ -131,9 +131,9 @@ var x = setInterval(function() {
 
   // Get today's date and time
   var now = new Date().getTime();
-  var countDownDate = new Date().getTime();
-  var h = now.getHours() ;
-  countDownDate.setHours(h+1);
+  var n1 = new Date() ;
+  n1.setHours(n1.getHours()+1);
+  countDownDate=n1.getTime();
   // Find the distance between now and the count down date
   var distance = countDownDate - now;
 
