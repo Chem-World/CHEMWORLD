@@ -131,7 +131,7 @@ function endQuiz() {
     $('#explanation').empty();
     $('#question').empty();
     $('#choice-block').empty();
-    $('#submitbutton').remove();
+    $('#submitbutton').empty();
     $('#question').text(doneQuizText1 + score + doneQuizText2 + quiz.length + doneQuizText3 + doneQuizText4);
     var grade = Math.round(score / quiz.length * 100);
     alert(score);
