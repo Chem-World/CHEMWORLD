@@ -141,17 +141,17 @@ var gradeColor = 'black';
     if (grade < 30) {
         cheers = 'You have failed.';
         gradeColor = 'darkred';
-alert(doneQuizText1 + score + doneQuizText2 + quiz.length + doneQuizText3 + doneQuizText4 + cheers);
+//alert(doneQuizText1 + score + doneQuizText2 + quiz.length + doneQuizText3 + doneQuizText4 + cheers);
     }
     else if (grade > 30) {
         cheers = 'Wow! Amazing score!';
         gradeColor = 'darkgreen';
-alert(doneQuizText1 + score + doneQuizText2 + quiz.length + doneQuizText3 + doneQuizText4+cheers);
+//alert(doneQuizText1 + score + doneQuizText2 + quiz.length + doneQuizText3 + doneQuizText4+cheers);
     }
     $(document.createElement('gradeH')).css({ 'text-align': 'center', 'font-size': '4em', 'color': gradeColor }).text(score).insertAfter('#question');
     $(document.createElement('space')).html('<br/>').insertAfter('gradeH');
     $(document.createElement('cheers')).css({ 'color': gradeColor }).text(cheers).insertAfter('space');
-generateBulk();
+$(document.createElement('button')).attr('type','button').addClass('btn btn-outline-primary').attr('onclick','generateBulk()').html('Get Pdf Paper');
 }
 
 /**
