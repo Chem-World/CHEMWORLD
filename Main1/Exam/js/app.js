@@ -151,7 +151,9 @@ var gradeColor = 'black';
     $(document.createElement('gradeH')).css({ 'text-align': 'center', 'font-size': '4em', 'color': gradeColor }).text(score).insertAfter('#question');
     $(document.createElement('space')).html('<br/>').insertAfter('gradeH');
     $(document.createElement('cheers')).css({ 'color': gradeColor }).text(cheers).insertAfter('space');
-$(document.createElement('button')).attr('type','button').addClass('btn btn-outline-primary').attr('onclick','generateBulk()').html('Get Pdf Paper');
+  $('#submitbutton').append('<button class="btn btn-outline-primary " type="button" onclick="generateBulk()">Get Solution Paper </button>');
+
+// $(document.createElement('button')).attr('type','button').addClass('btn btn-outline-primary').attr('onclick','generateBulk()').html('Get Pdf Paper');
 }
 
 /**
