@@ -348,7 +348,7 @@ function generateBulk() {
         }
         bulkQuestionsString += "<hr/>";
     });
-    bulkQuestionsString += "<hr/><center>ChemWorld © 2020</center>";
+    bulkQuestionsString += "<hr/><h3><center>ChemWorld © " + "<center>"+ document.write(new Date().getFullYear()); "</center>" + ". Developed by Sujoy Nath </center><h3>";
     localStorage.setItem("bulkString", bulkQuestionsString);
     var win = window.open("bulk.html");
     win.focus();
