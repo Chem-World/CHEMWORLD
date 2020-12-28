@@ -76,14 +76,51 @@ function processQuestion(choice) {
     var correctString = quiz[currentquestion]['correct'];
     if (userChoice == correctString) {
         $('.choice').eq(choice).css({ 'background-color': '#50D943' });
-        $('#explanation').html('<strong><font color="darkgreen">' + correctText + '! &#10004;</font><br/></strong> ' + htmlEncode(quiz[currentquestion]['explanation']));
-        score++;
+
+   if (quiz[currentquestion].hasOwnProperty('Image') && quiz[currentquestion]['Explanation'] != " ") 
+{    
+$('#explanation').css({ zoom: 1, '-moz-transform': 'scale(1)' });
+$('#explanation').attr('src', quiz[currentquestion]['Explanation']).attr('alt', htmlEncode(quiz[currentquestion]['question']));
+ $('#explanation').click(function () {
+            if (clicked) {
+                $('#explanation').css({ zoom: 1, '-moz-transform': 'scale(1)' });
+                clicked = false;
+            }
+            else {
+                $('#explanation').css({ zoom: 5, '-moz-transform': 'scale(3)' });
+                clicked = true;
+            }
+        });
+else
+{
+ $('#explanation').html('<strong><font color="darkgreen">' + correctText + '! &#10004;</font><br/></strong> ' + htmlEncode(quiz[currentquestion]['explanation']));
+ }   
+ score++;
     } else {
         allQuestions.push(userQuestion);        // redo mistaken question.
         var correctIndex = quiz[currentquestion]['choices'].indexOf(correctString);
         $('.choice').eq(correctIndex).css({ 'background-color': 'lightgreen' });
         $('.choice').eq(choice).css({ 'background-color': '#D92623' });
-        $('#explanation').html('<strong><font color="darkred">' + wrongText + ' &#10008;</font><br/></strong> ' + htmlEncode(quiz[currentquestion]['explanation']));
+if (quiz[currentquestion].hasOwnProperty('Image') && quiz[currentquestion]['Explanation'] != " ") 
+{    
+$('#explanation').css({ zoom: 1, '-moz-transform': 'scale(1)' });
+$('#explanation').attr('src', quiz[currentquestion]['Explanation']).attr('alt', htmlEncode(quiz[currentquestion]['question']));
+ $('#explanation').click(function () {
+            if (clicked) {
+                $('#explanation').css({ zoom: 1, '-moz-transform': 'scale(1)' });
+                clicked = false;
+            }
+            else {
+                $('#explanation').css({ zoom: 5, '-moz-transform': 'scale(3)' });
+                clicked = true;
+            }
+        });
+else
+{
+ $('#explanation').html('<strong><font color="darkgreen">' + correctText + '! &#10004;</font><br/></strong> ' + htmlEncode(quiz[currentquestion]['explanation']));
+ }          
+
+ // $('#explanation').html('<strong><font color="darkred">' + wrongText + ' &#10008;</font><br/></strong> ' + htmlEncode(quiz[currentquestion]['explanation']));
     }
     currentquestion++;
     $('#submitbutton').html(nextQuestionText + ' &raquo;').on('click', function () {
