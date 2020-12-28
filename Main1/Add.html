@@ -86,6 +86,10 @@
 						<span class="focus-input100" data-placeholder="Image Url"></span>
 					</div>
 
+					<div class="wrap-input100 validate-input" data-validate="Enter Username" >                                                                                              <input class="input100" type="text" id="marks">
+                                                <span class="focus-input100" data-placeholder="Marks"></span>
+                                        </div>
+
 					<div class="container-login100-form-btn">
 						<div class="wrap-login100-form-btn">
 							<div class="login100-form-bgbtn"></div>
@@ -176,13 +180,15 @@ var chd = document.getElementById("chd").value ;
 var exp = document.getElementById("explanation").value;
   var correct = document.getElementById("correct").value;
 var img = document.getElementById("img").value;
+var marks = document.getElementById("marks").value ;
 
 
  	firebase.database().ref().child('question').child(chapter).child(qnum).set({
   correct: correct,
   explanation: exp,
   image: img,
-  question: question
+  question: question,
+  marks : marks
 }).catch(function(error) { 
 			alert('there was an error'); 
 			var errorCode = error.code;
