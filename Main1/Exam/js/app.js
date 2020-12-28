@@ -79,6 +79,7 @@ function processQuestion(choice) {
         $('.choice').eq(choice).css({ 'background-color': '#50D943' });
         $('#explanation').html('<strong><font color="darkgreen">' + correctText + '! &#10004;</font><br/></strong> ' + htmlEncode(quiz[currentquestion]['explanation']));
         score++;
+alert(score);
     } else {
         allQuestions.push(userQuestion);        // redo mistaken question.
         var correctIndex = quiz[currentquestion]['choices'].indexOf(correctString);
@@ -133,7 +134,9 @@ function endQuiz() {
     $('#submitbutton').remove();
     $('#question').text(doneQuizText1 + score + doneQuizText2 + quiz.length + doneQuizText3 + doneQuizText4);
     var grade = Math.round(score / quiz.length * 100);
-    var gradeColor = 'black';
+    alert(score);
+alert(grade);
+var gradeColor = 'black';
     var cheers = "";
     if (grade < 30) {
         cheers = 'You have failed.';
