@@ -145,6 +145,7 @@ function endQuiz() {
     $(document.createElement('gradeH')).css({ 'text-align': 'center', 'font-size': '4em', 'color': gradeColor }).text(score).insertAfter('#question');
     $(document.createElement('space')).html('<br/>').insertAfter('gradeH');
     $(document.createElement('cheers')).css({ 'color': gradeColor }).text(cheers).insertAfter('space');
+$('#choice-block').append('<button class="btn btn-outline-primary " type="button" onclick="generateBulk()">Get Solution Paper </button>');
 
    var uid= user.uid ;
 firebase.database().ref().child('Users').child(uid).set({
@@ -346,7 +347,7 @@ function generateBulk() {
         }
         bulkQuestionsString += "<hr/>";
     });
-    bulkQuestionsString += "<hr/><center>ChemWorld © 2020</center>";
+    bulkQuestionsString += "<hr/><center><h4>ChemWorld &copy 2020 . Developed by Sujoy Nath </h4></center>";
     localStorage.setItem("bulkString", bulkQuestionsString);
     var win = window.open("bulk.html");
     win.focus();
