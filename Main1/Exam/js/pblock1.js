@@ -147,7 +147,7 @@ function endQuiz() {
     $(document.createElement('cheers')).css({ 'color': gradeColor }).text(cheers).insertAfter('space');
 $('#choice-block').append('<button class="btn btn-outline-primary " type="button" onclick="generateBulk()">Get Solution Paper </button>');
 
-firebase.database().ref().child('question').child('pBlock Elements').child('Score').set({
+//firebase.database().ref().child('question').child('pBlock Elements').child('Score').set({
   Name : name1,
   Score: score ,
   Class : class1,
@@ -404,7 +404,7 @@ var firebaseConfig = {
 
 // Initialize Firebase.
 var fb = firebase.initializeApp(firebaseConfig);
-firebase.auth().onAuthStateChanged(function(user) {
+// firebase.auth().onAuthStateChanged(function(user) {
 if (user) {
 var user1 = firebase.auth().currentUser;
 var uid1=user1.uid;
