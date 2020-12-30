@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'; media-src *; img-src * filesystem: data: gap: https://ssl.gstatic.com content:;">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" media="all" href="css/dotsMenu.css">
+    <link rel="stylesheet" type="text/css" media="all" href="css/app.css">
+    <title>ChemWorld</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">  
+ <script src="js/cordjee.js"></script>
+    
+</head>
+
+<body>
+<script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAVYqdgaPcMRZaQ-XCDwfZrlI93tk4O9ss",
+    authDomain: "chemquery-50347.firebaseapp.com",
+    databaseURL: "https://chemquery-50347.firebaseio.com",
+    projectId: "chemquery-50347",
+    storageBucket: "chemquery-50347.appspot.com",
+    messagingSenderId: "1051796875998",
+    appId: "1:1051796875998:web:fdbb2d2da9e18270d2304f",
+    measurementId: "G-PYDB0D6XF3"
+    };
+    firebase.initializeApp(config);
+  </script>
+<script>
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    //alert("Welcome to CHEMWORLD");
+
+    //window.location ='https://chem-world.github.io/CHEMWORLD/Main1/Main.html';
+      
+   
+
+    var user = firebase.auth().currentUser;
+
+    if(user != null){
+
+     // var email_id = user.email;
+      //document.getElementById("user_para").innerHTML = "Welcome User : " + email_id;
+
+    }
+
+  } else {
+    // No user is signed in.
+
+   window.location.href = 'https://chem-world.github.io/CHEMWORLD';
+		
+
+  }
+});
+</script>
+	<div class="header">
+		<!-- three dot menu -->
+		
+	</div>
+	<div id="dem" class="dem"> </div>
+		<div class="bgbg">
+
+			<div id="frame" role="content"></div>
+        
+
+        <div id="myProgress">
+            <div id="loader"></div>
+            <div align="center" id="fetchingQ"></div>
+        </div>
+    </div>
+    <br/>
+
+    <center>
+		
+		<hr/>
+        <br />
+		<p>
+		Copyright &copy to ChemWorld.Developed by Sujoy Nath
+		<p>
+    </center>
+	<br/><br/><br/><br/>
+	 <div class="menu" align="center">
+        <table  align="center">
+            <tr>
+                <td>
+                    <button class="simpleBtn" id="newquiz" onClick="er()"></button>
+                </td>
+                <td>
+                      <button class="simpleBtn" id="reportMistake" onClick="reportMistake()"></button>  
+            </td>
+            </tr>
+        </table>
+<div class="bottom"> </div>
+	</div>
+<style>
+.bottom
+{
+
+}
+</style>
+<script>
+window.onbeforeunload = function()
+ {
+ return  "Data will be lost if you leave the page. Be concentrated while giving exams " ;
+};
+
+</script>
+<script>
+function er()
+{
+alert("Not permitted.");
+
+}
+</script>
+
+<script>
+// Set the date we're counting down to
+//var n1 = new Date() ;
+  //n1.setHours(n1.getHours()+1);
+  //countDownDate=n1.getTime();
+var minutesToAdd=60;
+var currentDate = new Date();
+var countDownDate = new Date(currentDate.getTime() + minutesToAdd*60000);
+//countDownDate= new Date("Dec 27,2020 18:37:05").getTime();
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  text="<h4>"+ "Time Left : " + hours + "h "
+  + minutes + "m " + seconds + "s "+ "</h5> ";
+
+document.getElementById("dem").innerHTML = text ;
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    //document.getElementById("dem").innerHTML = "EXPIRED";
+  alert("Your time is over . " );
+  endQuiz();
+  }
+}, 1000);
+</script>
+<style>
+ .dem{
+  text-align: center;
+  font-size: 15px;
+  margin-top: 30px;
+}
+</style>
+</body>
+</html>
