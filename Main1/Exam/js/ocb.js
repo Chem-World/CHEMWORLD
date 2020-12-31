@@ -375,7 +375,7 @@ function initQuiz() {
     $("#setQuizSize").text('Set number of quesitons in quiz');
     $("#fetchingQ").text('Loading questions from database..');
     document.body.style = "text-align:right;unicode-bidi:bidi-override; direction:rtl;"
-    rootRef = fb.database().ref('question').child('Organic Chemistry  Board');
+    rootRef = fb.database().ref('question').child('Organic Chemistry Board');
     loadAllQuestions();
 }
 /************************************* MAIN **********************************************************/
