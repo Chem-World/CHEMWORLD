@@ -135,22 +135,35 @@ function endQuiz() {
     var gradeColor = 'black';
     var cheers = "";
     if (grade < 30) {
-        cheers = 'You have failed.';
+        cheers = 'Sorry! You have failed.Please Work Hard.Better Luck Next time';
         gradeColor = 'darkred';
     }
-    else if (grade > 30) {
-        cheers = 'Wow! Amazing score!';
-        gradeColor = 'darkgreen'
+    else if (grade > 30 && grade <50 ) {
+        cheers = 'You secured average marks! You should practice More.';
+        gradeColor = 'darkgreen';
     }
-    $(document.createElement('gradeH')).css({ 'text-align': 'center', 'font-size': '4em', 'color': gradeColor }).text(grade).insertAfter('#question');
+	else if (grade > 50 && grade <80 ) {                                cheers = 'You are doing great!Keep it Up ';
+	    gradeColor = 'darkgreen';
+	}
+
+	else {
+
+            cheers = 'Wow Amazing Score ! Very The Good.';
+	    gradeColor = 'darkgreen';
+	  }
+
+    $(document.createElement('gradeH')).css({ 'text-align': 'center', 'font-size': '4em', 'color': gradeColor }).text(score).insertAfter('#question');
     $(document.createElement('space')).html('<br/>').insertAfter('gradeH');
     $(document.createElement('cheers')).css({ 'color': gradeColor }).text(cheers).insertAfter('space');
+$('#choice-block').append('<button class="btn btn-outline-primary " type="button" onclick="generateBulk()">Get Solution Paper </button>');
 
-   var uid= user.uid ;
-firebase.database().ref().child('Users').child(uid).set({
-   Equilibrium_Score: score,
-   Eq_attempt:"yes"
- });
+//firebase.database().ref().child('question').child('pBlock Elements').child('Score').set({
+  //Name : name1,
+ // Score: score ,
+ // Class : class1,
+ // Email : email1,
+ // Uid : uid1 
+ // });
 
 }
 
@@ -346,7 +359,7 @@ function generateBulk() {
         }
         bulkQuestionsString += "<hr/>";
     });
-    bulkQuestionsString += "<hr/><center>ChemWorld © 2020</center>";
+    bulkQuestionsString += "<hr/><center><h4>ChemWorld &copy 2020 . Developed by Sujoy Nath </h4></center>";
     localStorage.setItem("bulkString", bulkQuestionsString);
     var win = window.open("bulk.html");
     win.focus();
@@ -401,6 +414,19 @@ var firebaseConfig = {
 
 // Initialize Firebase.
 var fb = firebase.initializeApp(firebaseConfig);
+// firebase.auth().onAuthStateChanged(function(user) {
+// if (user) {
+// var user1 = firebase.auth().currentUser;
+// var uid1=user1.uid;
+// var ref1 = firebase.database().ref("Users").child(uid1);
+// ref1.once("value").then(function(snapshot) {
+ // var user2 = snapshot.val();
+ // var email1 = user2.email ;
+ // var name1=user2.Name; 
+ // var class1= user2.Class ;
+   //    });
+// });
+
 
 window.onload = function () {
     initQuiz();

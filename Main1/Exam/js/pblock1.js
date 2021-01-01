@@ -135,14 +135,24 @@ function endQuiz() {
     var gradeColor = 'black';
     var cheers = "";
     if (grade < 30) {
-        cheers = 'You have failed.';
+        cheers = 'Sorry! You have failed.Please Work Hard.Better Luck Next time';
         gradeColor = 'darkred';
     }
-    else if (grade > 30) {
-        cheers = 'Wow! Amazing score!';
-        gradeColor = 'darkgreen'
+    else if (grade > 30 && grade <50 ) {
+        cheers = 'You secured average marks! You should practice More.';
+        gradeColor = 'darkgreen';
     }
-    $(document.createElement('gradeH')).css({ 'text-align': 'center', 'font-size': '4em', 'color': gradeColor }).text(score).insertAfter('#question');
+	else if (grade > 50 && grade <80 ) {                                cheers = 'You are doing great!Keep it Up ';
+	    gradeColor = 'darkgreen';
+	}
+
+	else {
+
+            cheers = 'Wow Amazing Score ! Very The Good.';
+	    gradeColor = 'darkgreen';
+	  }
+
+    $(document.createElement('gradeH')).css({ 'text-align': 'center', 'font-size': '4em', 'color': gradeColor }).text(grade).insertAfter('#question');
     $(document.createElement('space')).html('<br/>').insertAfter('gradeH');
     $(document.createElement('cheers')).css({ 'color': gradeColor }).text(cheers).insertAfter('space');
 $('#choice-block').append('<button class="btn btn-outline-primary " type="button" onclick="generateBulk()">Get Solution Paper </button>');
