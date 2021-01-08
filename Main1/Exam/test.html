@@ -16,15 +16,57 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.2.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.2.1/firebase-database.js"></script>
-<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">  
- 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+</head>
+
+<body>
+<script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyAVYqdgaPcMRZaQ-XCDwfZrlI93tk4O9ss",
+    authDomain: "chemquery-50347.firebaseapp.com",
+    databaseURL: "https://chemquery-50347.firebaseio.com",
+    projectId: "chemquery-50347",
+    storageBucket: "chemquery-50347.appspot.com",
+    messagingSenderId: "1051796875998",
+    appId: "1:1051796875998:web:fdbb2d2da9e18270d2304f",
+    measurementId: "G-PYDB0D6XF3"
+    };
+    firebase.initializeApp(config);
+  </script>
+<script>
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    // User is signed in.
+    //alert("Welcome to CHEMWORLD");
+
+    //window.location ='https://chem-world.github.io/CHEMWORLD/Main1/Main.html';
+      
+   
+
+    var user = firebase.auth().currentUser;
+
+    if(user != null){
+
+     // var email_id = user.email;
+      //document.getElementById("user_para").innerHTML = "Welcome User : " + email_id;
+
+    }
+
+  } else {
+    // No user is signed in.
+
+   window.location.href = 'https://chem-world.github.io/CHEMWORLD';
+		
+
+  }
+});
+</script>
 
 
 
-
-   <script>
-
+<script>
 
 
 /* Based on https://github.com/jrue/JavaScript-Quiz by Jeremy Rue */
@@ -185,15 +227,21 @@ function endQuiz() {
     $(document.createElement('cheers')).css({ 'color': gradeColor }).text(cheers).insertAfter('space');
 $('#choice-block').append('<button class="btn btn-outline-primary " type="button" onclick="generateBulk()">Get Solution Paper </button>');
 
-//firebase.database().ref().child('question').child('pBlock Elements').child('Score').set({
-  //Name : name1,
- // Score: score ,
- // Class : class1,
- // Email : email1,
- // Uid : uid1 
- // });
+var ref1 = firebase.database().ref("Users").child(user.uid);
+ref.once("value").then(function(snapshot) {                       var user1 = snapshot.val();                                     var class = user1.Class;
+  var name = user1.Name ;
+});
+
+firebase.database().ref().child('question').child('pBlock Elements').child('Score').child(user.email).set({
+    Name : name,
+    Score: score ,
+    Class : class1,
+    Email : user.email1,
+    Uid : user.uid 
+  });
 
 }
+
 
 /**
 * Runs the first time and creates all of the elements for the quiz
@@ -506,56 +554,13 @@ function setQuizSize() {
 }
 
 
- </script>
 
-
-
-    
-</head>
-
-<body>
-<script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyAVYqdgaPcMRZaQ-XCDwfZrlI93tk4O9ss",
-    authDomain: "chemquery-50347.firebaseapp.com",
-    databaseURL: "https://chemquery-50347.firebaseio.com",
-    projectId: "chemquery-50347",
-    storageBucket: "chemquery-50347.appspot.com",
-    messagingSenderId: "1051796875998",
-    appId: "1:1051796875998:web:fdbb2d2da9e18270d2304f",
-    measurementId: "G-PYDB0D6XF3"
-    };
-    firebase.initializeApp(config);
-  </script>
-<script>
-firebase.auth().onAuthStateChanged(function(user) {
-  if (user) {
-    // User is signed in.
-    //alert("Welcome to CHEMWORLD");
-
-    //window.location ='https://chem-world.github.io/CHEMWORLD/Main1/Main.html';
-      
-   
-
-    var user = firebase.auth().currentUser;
-
-    if(user != null){
-
-     // var email_id = user.email;
-      //document.getElementById("user_para").innerHTML = "Welcome User : " + email_id;
-
-    }
-
-  } else {
-    // No user is signed in.
-
-   window.location.href = 'https://chem-world.github.io/CHEMWORLD';
-		
-
-  }
-});
 </script>
+
+
+
+
+
 	<div class="header">
 		<!-- three dot menu -->
 		
