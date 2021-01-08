@@ -227,19 +227,10 @@ function endQuiz() {
     $(document.createElement('cheers')).css({ 'color': gradeColor }).text(cheers).insertAfter('space');
 $('#choice-block').append('<button class="btn btn-outline-primary " type="button" onclick="generateBulk()">Get Solution Paper </button>');
 
-var ref1 = firebase.database().ref("Users").child(user.uid);
-ref.once("value").then(function(snapshot) {                       var user1 = snapshot.val();                                     var class = user1.Class;
-  var name = user1.Name ;
-});
-
 firebase.database().ref().child('question').child('pBlock Elements').child('Score').child(user.email).set({
-    Name : name,
     Score: score ,
-    Class : class1,
-    Email : user.email1,
     Uid : user.uid 
   });
-
 }
 
 
