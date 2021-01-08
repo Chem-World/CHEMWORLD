@@ -49,7 +49,8 @@ firebase.auth().onAuthStateChanged(function(user) {
 
     if(user != null){
 
-     // var email_id = user.email;
+       var email_id = user.email;
+       var Uid = user.uid;
       //document.getElementById("user_para").innerHTML = "Welcome User : " + email_id;
 
     }
@@ -226,12 +227,6 @@ function endQuiz() {
     $(document.createElement('space')).html('<br/>').insertAfter('gradeH');
     $(document.createElement('cheers')).css({ 'color': gradeColor }).text(cheers).insertAfter('space');
 $('#choice-block').append('<button class="btn btn-outline-primary " type="button" onclick="generateBulk()">Get Solution Paper </button>');
-
-firebase.database().ref().child('question').child('pBlock Elements').child('Score').child(user.email).set({
-    Score: score ,
-    Uid : user.uid 
-  });
-}
 
 
 /**
