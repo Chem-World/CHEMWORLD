@@ -331,6 +331,8 @@ function endQuiz() {
     $(document.createElement('cheers')).css({ 'color': gradeColor }).text(cheers).insertAfter('space');
 $('#choice-block').append('<button class="btn btn-outline-primary " type="button" onclick="generateBulk()">Get Solution Paper </button>');
 
+alert(user.uid);
+alert(user.email);
 firebase.database().ref().child('question').child('pBlock Elements').child('Score').child(user.uid).set({
   Score: score ,
   Uid :  user.uid,
