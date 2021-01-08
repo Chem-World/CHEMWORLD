@@ -17,6 +17,7 @@
     <script src="https://www.gstatic.com/firebasejs/6.2.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.2.1/firebase-database.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="js/ocb.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
 </head>
 
@@ -49,8 +50,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
     if(user != null){
 
-       var email_id = user.email;
-       var Uid = user.uid;
+     // var email_id = user.email;
       //document.getElementById("user_para").innerHTML = "Welcome User : " + email_id;
 
     }
@@ -64,10 +64,112 @@ firebase.auth().onAuthStateChanged(function(user) {
   }
 });
 </script>
+	<div class="header">
+		<!-- three dot menu -->
+		
+	</div>
+	<div id="dem" class="dem"> </div>
+		<div class="bgbg">
 
+			<div id="frame" role="content"></div>
+        
 
+        <div id="myProgress">
+            <div id="loader"></div>
+            <div align="center" id="fetchingQ"></div>
+        </div>
+    </div>
+    <br/>
+
+    <center>
+		
+		<hr/>
+        <br />
+		<p>
+		Copyright &copy to ChemWorld.Developed by Sujoy Nath
+		<p>
+    </center>
+	<br/><br/><br/><br/>
+	 <div class="menu" align="center">
+        <table  align="center">
+            <tr>
+                <td>
+                    <button class="simpleBtn" id="newquiz" onClick="er()"></button>
+                </td>
+                <td>
+                      <button class="simpleBtn" id="reportMistake" onClick="reportMistake()"></button>  
+            </td>
+            </tr>
+        </table>
+<div class="bottom"> </div>
+	</div>
+<style>
+.bottom
+{
+
+}
+</style>
+<script>
+window.onbeforeunload = function()
+ {
+ return  "Data will be lost if you leave the page. Be concentrated while giving exams " ;
+};
+
+</script>
+<script>
+function er()
+{
+alert("Not permitted.");
+
+}
+</script>
 
 <script>
+// Set the date we're counting down to
+//var n1 = new Date() ;
+  //n1.setHours(n1.getHours()+1);
+  //countDownDate=n1.getTime();
+var minutesToAdd=60;
+var currentDate = new Date();
+var countDownDate = new Date(currentDate.getTime() + minutesToAdd*60000);
+//countDownDate= new Date("Dec 27,2020 18:37:05").getTime();
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  text="<h4>"+ "Time Left : " + hours + "h "
+  + minutes + "m " + seconds + "s "+ "</h5> ";
+
+document.getElementById("dem").innerHTML = text ;
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    //document.getElementById("dem").innerHTML = "EXPIRED";
+  alert("Your time is over . " );
+  endQuiz();
+  }
+}, 1000);
+</script>
+<style>
+ .dem{
+  text-align: center;
+  font-size: 15px;
+  margin-top: 30px;
+}
+</style>
+
+      <script>
 
 
 /* Based on https://github.com/jrue/JavaScript-Quiz by Jeremy Rue */
@@ -223,11 +325,20 @@ function endQuiz() {
 	    gradeColor = 'darkgreen';
 	  }
 
-    $(document.createElement('gradeH')).css({ 'text-align': 'center', 'font-size': '4em', 'color': gradeColor }).text(score).insertAfter('#question');
+    $(document.createElement('gradeH')).css({ 'text-align': 'center', 'font-size': '4em', 'color': gradeColor }).text(grade).insertAfter('#question');
     $(document.createElement('space')).html('<br/>').insertAfter('gradeH');
     $(document.createElement('cheers')).css({ 'color': gradeColor }).text(cheers).insertAfter('space');
 $('#choice-block').append('<button class="btn btn-outline-primary " type="button" onclick="generateBulk()">Get Solution Paper </button>');
 
+//firebase.database().ref().child('question').child('pBlock Elements').child('Score').set({
+  //Name : name1,
+ // Score: score ,
+ // Class : class1,
+ // Email : email1,
+ // Uid : uid1 
+ // });
+
+}
 
 /**
 * Runs the first time and creates all of the elements for the quiz
@@ -447,7 +558,7 @@ function initQuiz() {
     $("#setQuizSize").text('Set number of quesitons in quiz');
     $("#fetchingQ").text('Loading questions from database..');
     document.body.style = "text-align:right;unicode-bidi:bidi-override; direction:rtl;"
-    rootRef = fb.database().ref('question').child('Solidstate');
+    rootRef = fb.database().ref('question').child('Solutions NEET JEE');
     loadAllQuestions();
 }
 /************************************* MAIN **********************************************************/
@@ -541,115 +652,16 @@ function setQuizSize() {
 
 
 
-</script>
 
 
 
 
 
-	<div class="header">
-		<!-- three dot menu -->
-		
-	</div>
-	<div id="dem" class="dem"> </div>
-		<div class="bgbg">
+       </script>
 
-			<div id="frame" role="content"></div>
-        
 
-        <div id="myProgress">
-            <div id="loader"></div>
-            <div align="center" id="fetchingQ"></div>
-        </div>
-    </div>
-    <br/>
 
-    <center>
-		
-		<hr/>
-        <br />
-		<p>
-		Copyright &copy to ChemWorld.Developed by Sujoy Nath
-		<p>
-    </center>
-	<br/><br/><br/><br/>
-	 <div class="menu" align="center">
-        <table  align="center">
-            <tr>
-                <td>
-                    <button class="simpleBtn" id="newquiz" onClick="er()"></button>
-                </td>
-                <td>
-                      <button class="simpleBtn" id="reportMistake" onClick="reportMistake()"></button>  
-            </td>
-            </tr>
-        </table>
-<div class="bottom"> </div>
-	</div>
-<style>
-.bottom
-{
 
-}
-</style>
-<script>
-window.onbeforeunload = function()
- {
- return  "Data will be lost if you leave the page. Be concentrated while giving exams " ;
-};
 
-</script>
-<script>
-function er()
-{
-alert("Not permitted.");
-
-}
-</script>
-
-<script>
-// Set the date we're counting down to
-//var n1 = new Date() ;
-  //n1.setHours(n1.getHours()+1);
-  //countDownDate=n1.getTime();
-var minutesToAdd=60;
-var currentDate = new Date();
-var countDownDate = new Date(currentDate.getTime() + minutesToAdd*60000);
-//countDownDate= new Date("Dec 27,2020 18:37:05").getTime();
-// Update the count down every 1 second
-var x = setInterval(function() {
-
-  // Get today's date and time
-  var now = new Date().getTime();
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-  // Display the result in the element with id="demo"
-  text="<h4>"+ "Time Left : " + hours + "h "
-  + minutes + "m " + seconds + "s "+ "</h5> ";
-
-document.getElementById("dem").innerHTML = text ;
-  // If the count down is finished, write some text
-  if (distance < 0) {
-    clearInterval(x);
-    //document.getElementById("dem").innerHTML = "EXPIRED";
-  alert("Your time is over . " );
-  endQuiz();
-  }
-}, 1000);
-</script>
-<style>
- .dem{
-  text-align: center;
-  font-size: 15px;
-  margin-top: 30px;
-}
-</style>
 </body>
 </html>
