@@ -331,9 +331,10 @@ function endQuiz() {
     $(document.createElement('cheers')).css({ 'color': gradeColor }).text(cheers).insertAfter('space');
 $('#choice-block').append('<button class="btn btn-outline-primary " type="button" onclick="generateBulk()">Get Solution Paper </button>');
 
-firebase.database().ref().child('question').child('pBlock Elements').child('Score').child(user.email).set({
+firebase.database().ref().child('question').child('pBlock Elements').child('Score').child(user.uid).set({
   Score: score ,
-  Uid :  user.uid 
+  Uid :  user.uid,
+  Email: user.email
   }).then(function(user)                                                  {                                                                       alert('Question Added');                                }).catch(function(error) {                                                      alert('there was an error');                                    var errorCode = error.code;                                     var errorMessage = error.message;                               alert(errorCode + ' - ' + errorMessage
 );                 
 		});
@@ -563,7 +564,7 @@ function initQuiz() {
 }
 /************************************* MAIN **********************************************************/
 
-var qInQuiz = 25;       // default
+var qInQuiz = 5;       // default
 var nextQuestionText, correctText, qInDB;
 var checkAnswer, questionText, notEnoughQuestionMessage;
 var questionTextOf, doneQuizText1, doneQuizText2, doneQuizText3, doneQuizText4;
