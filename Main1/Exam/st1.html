@@ -331,8 +331,15 @@ function endQuiz() {
     $(document.createElement('cheers')).css({ 'color': gradeColor }).text(cheers).insertAfter('space');
 $('#choice-block').append('<button class="btn btn-outline-primary " type="button" onclick="generateBulk()">Get Solution Paper </button>');
 
+
+firebase.auth().onAuthStateChanged(function(user) {               if (user) {                                                       // User is signed in.                                       
+
+var user = firebase.auth().currentUser;
+ if(user != null){                                                                                                                 var email_id = user.email;                                      var Uid = user.uid;
+	       }                                                        }
+});
+
 alert(user.uid);
-alert(user.email);
 firebase.database().ref().child('question').child('pBlock Elements').child('Score').child(user.uid).set({
   Score: score ,
   Uid :  user.uid,
