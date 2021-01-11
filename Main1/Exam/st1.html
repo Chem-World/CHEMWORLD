@@ -319,6 +319,9 @@ function endQuiz() {
     $('#submitbutton').remove();
     $('#question').text(doneQuizText1 + score + doneQuizText2 + quiz.length + doneQuizText3 + doneQuizText4);
     var grade = Math.round(score / quiz.length * 100);
+    alert(1);
+    score();
+    alert(score);
     var gradeColor = 'black';
     var cheers = "";
     if (grade < 30) {
@@ -344,7 +347,6 @@ function endQuiz() {
     $(document.createElement('cheers')).css({ 'color': gradeColor }).text(cheers).insertAfter('space');
 $('#choice-block').append('<button class="btn btn-outline-primary " type="button" onclick="generateBulk()">Get Solution Paper </button>');
 
-score();
 }
 
 /**
