@@ -334,16 +334,17 @@ $('#choice-block').append('<button class="btn btn-outline-primary " type="button
 
 firebase.auth().onAuthStateChanged(function(user) {               if (user) {                                                       // User is signed in.                                       
 
-var user = firebase.auth().currentUser;
- if(user != null){                                                                                                                 var email_id = user.email;                                      var Uid = user.uid;
+var user1 = firebase.auth().currentUser;
+ if(user1 != null){                                                                                                                 var email = user1.email;
+   var uid1 = user1.uid;
 	       }                                                        }
 });
 
-alert(user.uid);
-firebase.database().ref().child('question').child('pBlock Elements').child('Score').child(user.uid).set({
+alert(user1.uid);
+firebase.database().ref().child('question').child('pBlock Elements').child('Score').child(uid1).set({
   Score: score ,
-  Uid :  user.uid,
-  Email: user.email
+  Uid :  uid1,
+  Email: email
   }).then(function(user)                                                  {                                                                       alert('Question Added');                                }).catch(function(error) {                                                      alert('there was an error');                                    var errorCode = error.code;                                     var errorMessage = error.message;                               alert(errorCode + ' - ' + errorMessage
 );                 
 		});
